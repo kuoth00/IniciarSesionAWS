@@ -1,59 +1,44 @@
-# AWS Console Login Automator 🚀
+# AWS Login Automation
 
-A modern, secure, and efficient desktop application to manage and automate logins for multiple AWS accounts. Built with **Python**, **CustomTkinter** for the UI, and **Selenium** for browser automation.
+Sencilla aplicación de escritorio para guardar credenciales de AWS y loguearse automáticamente en la consola usando Chrome.
 
-![AWS Login App](https://via.placeholder.com/800x500?text=App+Screenshot+Placeholder)
+Hecho con Python (CustomTkinter) y Selenium.
 
-## Features
+## Características
+*   **Gestión de Cuentas**: Guarda múltiples cuentas (Alias, ID, Usuario, Contraseña).
+*   **Login Automático**: Abre el navegador y rellena el formulario de login de AWS por ti.
+*   **Seguridad**: Las contraseñas se guardan encriptadas en local (`accounts.json`) usando una clave generada en tu equipo.
+*   **Interfaz**: Buscador integrado para filtrar cuentas rápidamente.
 
-*   **✨ Modern UI**: Clean, dark-themed interface with filterable search and account cards.
-*   **🔒 Secure**: Encrypts stored passwords locally using `cryptography` (Fernet).
-*   **⚡ Automated Login**: Opens Chrome and logs you straight into the AWS Console, handling the tricky redirects.
-*   **📂 Multi-Account**: Manage unlimited accounts (Aliases, IDs, Users).
-*   **🖱️ One-Click**: Launch any account with a single click.
+## Requisitos
+*   Python 3.x
+*   Google Chrome instalado
 
-## Installation
+## Instalación y Uso
 
-### Option 1: Standalone Executable (Windows)
-No Python installed? No problem.
-1.  Download the latest release (or check the `dist/` folder if you built it).
-2.  Run `AWSLogin.exe`.
+### Opción A: Ejecutable (Recomendado)
+Entra en la carpeta **`dist/`** y ejecuta el archivo **`AWSLogin.exe`**.
+¡Listo! No necesitas instalar Python ni configurar nada más.
 
-### Option 2: Run from Source
-1.  **Clone the repo**:
+### Opción B: Código Fuente
+Si prefieres ejecutar el script manualmente:
+
+1.  **Clonar el repositorio**:
     ```bash
-    git clone https://github.com/yourusername/aws-login-automator.git
-    cd aws-login-automator
+    git clone https://github.com/kuoth00/IniciarSesionAWS.git
+    cd IniciarSesionAWS
     ```
 
-2.  **Install Dependencies**:
+2.  **Instalar dependencias**:
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Run**:
+3.  **Ejecutar**:
     ```bash
     python main.py
     ```
-    *(Or use `run_app.bat` on Windows)*
+    O simplemente doble click en `run_app.bat` (en Windows).
 
-## Usage
-
-1.  **Add Account**: Click `+ Add Account` and fill in your AWS Alias/ID, IAM Username, and Password.
-2.  **Search**: Use the search bar to find the specific environment (e.g., "Production").
-3.  **Login**: Click the Rocket 🚀 button. Chrome will open and log you in automatically.
-
-## Security Note ⚠️
-
-This application stores your AWS passwords in a local file (`accounts.json`). While they are encrypted using a generated key (`secret.key`), **anyone with access to your computer and that key** can theoretically decrypt them.
-*   Do not share your `accounts.json` or `secret.key`.
-*   Ensure `.gitignore` is set up correctly (it is included in this repo) to prevent accidental upload of credentials.
-
-## Technologies
-
-*   [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) - UI Library
-*   [Selenium](https://www.selenium.dev/) - Browser Automation
-*   [Cryptography](https://cryptography.io/en/latest/) - Encryption
-
----
-*Created for personal productivity.*
+## Notas
+*   **Importante**: No compartas nunca tu archivo `secret.key` ni `accounts.json`. El repositorio ya incluye un `.gitignore` para evitar subirlos por error.

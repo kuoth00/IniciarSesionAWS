@@ -43,7 +43,7 @@ class App(ctk.CTk):
         
         self.logo_label = ctk.CTkLabel(
             self.sidebar_frame, 
-            text="AWS Login 🚀", 
+            text="AWS Login", 
             font=ctk.CTkFont(family="Segoe UI", size=20, weight="bold"),
             text_color="white"
         )
@@ -134,9 +134,9 @@ class App(ctk.CTk):
 
         btn_login = ctk.CTkButton(
             btn_frame, 
-            text="Login 🚀", 
-            width=80,
-            height=32,
+            text="Login", 
+            width=70,
+            height=30,
             font=ctk.CTkFont(size=12, weight="bold"),
             command=lambda n=name: self.login_event(n),
             fg_color=AWS_ORANGE,
@@ -145,12 +145,13 @@ class App(ctk.CTk):
         )
         btn_login.pack(side="right", padx=5)
 
-        # Edit button (just re-open add dialog with pre-fill)
+        # Edit button
         btn_edit = ctk.CTkButton(
             btn_frame,
-            text="✏️",
-            width=35,
-            height=32,
+            text="Edit",
+            width=50,
+            height=30,
+            font=ctk.CTkFont(size=11),
             fg_color="#405060",
             hover_color="#506070",
             command=lambda n=name: self.add_account_event(edit_name=n)
@@ -159,11 +160,12 @@ class App(ctk.CTk):
 
         btn_delete = ctk.CTkButton(
             btn_frame,
-            text="🗑️",
-            width=35,
-            height=32,
-            fg_color="#D13212", # Red
-            hover_color="#B22205",
+            text="Delete",
+            width=60,
+            height=30,
+            font=ctk.CTkFont(size=11),
+            fg_color="#cf2525", # Red
+            hover_color="#a11515",
             command=lambda n=name: self.delete_account_event(n)
         )
         btn_delete.pack(side="right", padx=5)
@@ -258,6 +260,8 @@ class App(ctk.CTk):
             # Setup Chrome options
             options = webdriver.ChromeOptions()
             options.add_experimental_option("detach", True) # Keep browser open
+            options.add_experimental_option("excludeSwitches", ["enable-automation"])
+            options.add_experimental_option('useAutomationExtension', False)
             options.add_argument("--start-maximized")
             options.add_argument("--disable-blink-features=AutomationControlled") # Help avoid detection
             
