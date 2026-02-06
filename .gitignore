@@ -1,0 +1,24 @@
+# --- SENSITIVE DATA (RECURSIVE) ---
+# These patterns match ANYWHERE in the project tree
+**/secret.key
+**/accounts.json
+**/*.env
+**/*.pem
+
+# --- BUILD ARTIFACTS ---
+build/
+*.spec
+
+# --- PYTHON ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env/
+
+# --- IDEs & OS ---
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
